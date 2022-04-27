@@ -1,0 +1,49 @@
+# Project: 项目1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = book.o delete.o display.o insert.o main.o print.o search.o data.o
+LINKOBJ  = book.o delete.o display.o insert.o main.o print.o search.o data.o
+LIBS     = -L"D:/LenovoSoftstore/Install/DevC/MinGW64/lib" -L"D:/LenovoSoftstore/Install/DevC/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"D:/LenovoSoftstore/Install/DevC/MinGW64/include" -I"D:/LenovoSoftstore/Install/DevC/MinGW64/x86_64-w64-mingw32/include" -I"D:/LenovoSoftstore/Install/DevC/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/LenovoSoftstore/Install/DevC/MinGW64/include" -I"D:/LenovoSoftstore/Install/DevC/MinGW64/x86_64-w64-mingw32/include" -I"D:/LenovoSoftstore/Install/DevC/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/LenovoSoftstore/Install/DevC/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = 文献管理系统.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+book.o: book.cpp
+	$(CPP) -c book.cpp -o book.o $(CXXFLAGS)
+
+delete.o: delete.cpp
+	$(CPP) -c delete.cpp -o delete.o $(CXXFLAGS)
+
+display.o: display.cpp
+	$(CPP) -c display.cpp -o display.o $(CXXFLAGS)
+
+insert.o: insert.cpp
+	$(CPP) -c insert.cpp -o insert.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+print.o: print.cpp
+	$(CPP) -c print.cpp -o print.o $(CXXFLAGS)
+
+search.o: search.cpp
+	$(CPP) -c search.cpp -o search.o $(CXXFLAGS)
+
+data.o: data.cpp
+	$(CPP) -c data.cpp -o data.o $(CXXFLAGS)
